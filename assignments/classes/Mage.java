@@ -3,18 +3,41 @@
 
 public class Mage extends Character {
 
-    // TODO: Constructor
-    // public Mage(String name) {
-    //     super(name);             // <-- эхний мөр заавал байх
-    //     this.hp = 80;
-    //     this.maxHp = 80;
-    //     this.mp = 120;
-    //     this.maxMp = 120;
-    // }
+    
+     * @param name Баатрын нэр
 
-    // TODO: castFireball(Character target) → void
-    // - Хэрэв this.mp >= 30:
-    //     this.mp -= 30;
-    //     target.takeDamage(40);
-    // - Үгүй бол юу ч хийхгүй (silently ignore)
+    public Mage(String name) {
+      
+        super(name); 
+        
+        // Mage-ийн стат тохиргоо: Цус бага, Мана их
+        this.hp = 80;
+        this.maxHp = 80;
+        this.mp = 120;
+        this.maxMp = 120;
+    }
+
+ 
+     * * @param target Довтлох гэж буй баатар
+   
+    public void castFireball(Character target) {
+     
+        if (this.mp >= 30) {
+            // 2. Манаа зарцуулна
+            this.mp -= 30;
+            
+         
+            if (target != null) {
+                target.takeDamage(40);
+                System.out.println(this.name + " cast Fireball on " + target.getName() + "!");
+            }
+        } 
+        
+    }
+
+
+    @Override
+    public String toString() {
+        return "🧙 " + super.toString();
+    }
 }
