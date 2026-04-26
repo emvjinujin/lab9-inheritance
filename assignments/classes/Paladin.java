@@ -4,14 +4,19 @@
 
 public class Paladin extends Warrior {
 
-    // TODO: Constructor
-    // public Paladin(String name) {
-    //     super(name);             // <-- Warrior(name) руу очно
-    //     this.hp = 180;
-    //     this.maxHp = 180;
-    // }
+  
+     * @param name Баатрын нэр
+    public Paladin(String name) {
+        super(name); 
+       
+        this.hp = 180;
+        this.maxHp = 180;
+    }
 
-    // TODO: heal(int amount) → void
-    // - Сөрөг amount: юу ч хийхгүй
-    // - this.hp = Math.min(maxHp, hp + amount);
+    public void heal(int amount) {
+        if (amount > 0) {
+            this.hp = Math.min(this.maxHp, this.hp + amount);
+            System.out.println(this.name + " healed for " + amount + " HP.");
+        }
+    }
 }
