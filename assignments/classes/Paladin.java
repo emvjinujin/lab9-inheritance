@@ -5,7 +5,6 @@
 public class Paladin extends Warrior {
 
   
-     * @param name Баатрын нэр
     public Paladin(String name) {
         super(name); 
        
