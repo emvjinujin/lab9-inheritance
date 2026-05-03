@@ -3,8 +3,7 @@
 
 public class Mage extends Character {
 
-    
-     * @param name Баатрын нэр
+
 
     public Mage(String name) {
       
@@ -17,8 +16,7 @@ public class Mage extends Character {
         this.maxMp = 120;
     }
 
- 
-     * * @param target Довтлох гэж буй баатар
+
    
     public void castFireball(Character target) {
      

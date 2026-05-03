@@ -3,22 +3,36 @@
 
 public class Warrior extends Character {
 
-    // TODO: protected boolean shielded — default false
+    // 1. shielded хувьсагч - default утга нь false
+    protected boolean shielded = false;
 
-    // TODO: Constructor
-    // public Warrior(String name) {
-    //     super(name);             // <-- эхний мөр заавал байх
-    //     this.hp = 150;
-    //     this.maxHp = 150;
-    // }
+    // 2. Байгуулагч (Constructor)
+    public Warrior(String name) {
+        // Character(name) байгуулагчийг хамгийн эхний мөрөнд дуудна
+        super(name);
+        this.hp = 150;
+        this.maxHp = 150;
+        this.mp = 20;
+        this.maxMp = 20;
+    }
 
-    // TODO: shieldBash() → void
-    // - shielded = true (дараагийн takeDamage-ийг хагасладаг)
+    // 3. shieldBash() функц
+    public void shieldBash() {
+        this.shielded = true; // Бамбайгаа идэвхжүүлнэ
+        System.out.println(this.name + " used Shield Bash! Next damage will be halved.");
+    }
 
-    // TODO: takeDamage(int amount) → void  [override]
-    // - Хэрэв shielded:
-    //     super.takeDamage(amount / 2);
-    //     shielded = false;
-    // - Үгүй бол:
-    //     super.takeDamage(amount);
+    // 4. takeDamage(int amount) - Override хийж байна
+    @Override
+    public void takeDamage(int amount) {
+        if (this.shielded) {
+            // Хэрэв бамбайтай бол хохирлыг 2 дахин багасгаж авна
+            super.takeDamage(amount / 2);
+            this.shielded = false; // Бамбай нэг удаа ашиглагдаад идэвхгүй болно
+            System.out.println(this.name + " blocked half the damage with their shield!");
+        } else {
+            // Бамбайгүй бол хэвийн хохирол авна
+            super.takeDamage(amount);
+        }
+    }
 }

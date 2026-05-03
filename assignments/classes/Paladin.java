@@ -1,13 +1,9 @@
-// ─────── 🟡 Stretch (30 оноо) ───────
-// Paladin extends Warrior  (2 түвшний inheritance)
-// shieldBash() Warrior-аас аяндаа өвлөгдөнө — дахиж бичихгүй.
-
 public class Paladin extends Warrior {
 
-  
     public Paladin(String name) {
-        super(name); 
-       
+        super(name); // Одоо Warrior(name)-ийг олж чадах тул алдаа заахгүй
+
+        // Paladin-ийн тусгай утгуудыг шинэчилнэ
         this.hp = 180;
         this.maxHp = 180;
     }
